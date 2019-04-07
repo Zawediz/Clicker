@@ -8,15 +8,9 @@ class GameItems:
 
 
 def click(event):
-    main_button.unbind_all('<space>')
     game.n += game.hands
     count['text'] = 'ВАШ СЧЁТ : ' + str(game.n) + '\n' + 'ВАШИ АВТОНАЖАТИЯ : ' + str(
         game.auto) + '\n' + 'У ВАС РУК : ' + str(game.hands)
-    root.after(100, set_clicked)
-
-
-def set_clicked():
-    main_button.bind_all('<space>', click)
 
 
 def purchase_auto():
@@ -61,7 +55,7 @@ root.geometry('%dx%d+%d+%d' % (w, h, x_coordinate, y_coordinate))
 
 main_button_photo = tkinter.PhotoImage(file='red_button.gif')
 main_button = tkinter.Button(root, width=100, height=100, image=main_button_photo)
-main_button.bind_all('<space>', click)
+main_button.bind_all('<KeyRelease-space>', click)
 main_button.place(relx=.4, rely=.3)
 
 main_button_label = tkinter.Label(root, text='ЖМИ НА ПРОБЕЛ', fg='purple')
